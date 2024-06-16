@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fbea4eb-3e50-4058-b301-f700c5304560" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ISE5784_9287_2951.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/RadialGeometry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Double3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Util.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
+    <list default="true" id="1fbea4eb-3e50-4058-b301-f700c5304560" name="Changes" comment="FINISHED">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +32,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
   <component name="ProjectId" id="2hxWpnc1aR6L13EB5jDaXzpGzPU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -63,6 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.updates"
   }
 }]]></component>
@@ -102,6 +85,15 @@
       <option name="presentableId" value="Default" />
       <updated>1718536400423</updated>
     </task>
+    <task id="LOCAL‎-00001" summary="FINISHED">
+      <option name="closed" value="true" />
+      <created>1718544276058</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718544276058</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,5 +106,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="FINISHED" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINISHED" />
   </component>
 </project>
