@@ -17,6 +17,22 @@ public class Ray {
     private final Vector direction;
 
     /**
+     * Getter method for head
+     * @return the head point of the ray
+     */
+    public Point getHead() {
+        return head;
+    }
+
+    /**
+     * Getter method for direction
+     * @return the direction vector of the ray
+     */
+    public Vector getDirection() {
+        return direction;
+    }
+
+    /**
      * Ray constructor to initialize a new Ray object with head and direction
      * (direction should be normalized)
      * @param p a new head point to assign head with
@@ -38,5 +54,6 @@ public class Ray {
     public String toString() {
         return "Ray [head=" + head + ", direction=" + direction + "]";
     }
+
 
 }

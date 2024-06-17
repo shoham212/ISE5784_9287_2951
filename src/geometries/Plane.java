@@ -1,9 +1,14 @@
 package geometries;
 
+import org.junit.jupiter.api.Test;
+import primitives.Double3;
 import primitives.Point;
 import primitives.Vector;
 
+import static primitives.Util.isZero;
+
 /**
+ *  * @author Shoham&Efrat
  * The Plane class represents a geometric plane in a three-dimensional space.
  * A plane is defined by a point on the plane and a normal vector perpendicular to it.
  */
@@ -23,7 +28,9 @@ public class Plane implements Geometry {
      */
     public Plane (Point p1,Point p2,Point p3){
         q=p1;
-        normal=null;
+        Vector v1= p3.subtract(p1);
+        Vector v2= p2.subtract(p1);
+        normal = v1.crossProduct(v2).normalize();
     }
 
     /**
@@ -45,7 +52,7 @@ public class Plane implements Geometry {
     }
     @Override
     public Vector getNormal(Point p){
-        return null;
+        return normal;
     }
-}
 
+}

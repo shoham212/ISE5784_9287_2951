@@ -4,6 +4,7 @@ import primitives.Point;
 import primitives.Vector;
 
 /**
+ * @author Shoham&Efrat
  * The Sphere class represents a three-dimensional spherical geometric shape.
  * It extends the RadialGeometry abstract class and inherits its radius property.
  * A sphere is characterized by its radius and center point.
@@ -23,7 +24,8 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public Vector getNormal(Point p){
-        return null;
+        Vector normal = (p.subtract(center)).normalize();
+        return normal;
     }
 
 }
