@@ -1,15 +1,17 @@
 package renderer;
 
 import java.util.MissingResourceException;
+
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
+
 import primitives.*;
 
 /**
  * The Camera class represents a camera in a 3D space.
  * It defines the camera's position, orientation, and properties of the view plane.
  */
-public class Camera implements Cloneable{
+public class Camera implements Cloneable {
 
     private static final String MISSING_RENDERING_DATA = "missing rendering data";
     private static final String CAMERA_CLASS_NAME = "Camera";
@@ -20,6 +22,8 @@ public class Camera implements Cloneable{
     private double width = 0;
     private double height = 0;
     private double distance = 0;
+    private ImageWriter imageWriter;
+    private RayTracerBase rayTracer;
 
     /**
      * Default constructor for the Camera class.
@@ -63,6 +67,7 @@ public class Camera implements Cloneable{
     public static Builder getBuilder() {
         return new Builder();
     }
+
     /**
      * Constructs a ray through a specific pixel on the view plane.
      *
@@ -95,10 +100,76 @@ public class Camera implements Cloneable{
     }
 
     /**
+     * Renders the image by casting rays through each pixel and writing the result to the image.
+     *
+     * @return this Camera instance
+     */
+    public Camera renderImage() {
+        int nx = imageWriter.getNx();
+        int ny = imageWriter.getNy();
+
+        for (int i = 0; i < nx; ++i)
+            for (int j = 0; j < ny; ++j)
+                castRay(nx, ny, j, i);
+        return this;
+    }
+
+    /**
+     * Casts a ray through a specific pixel and writes the color to the image.
+     *
+     * @param nX the number of horizontal pixels in the view plane
+     * @param nY the number of vertical pixels in the view plane
+     * @param j  the horizontal index of the pixel (0-based)
+     * @param i  the vertical index of the pixel (0-based)
+     */
+    private void castRay(int nX, int nY, int j, int i) {
+        Ray ray = constructRay(nX, nY, j, i);
+        Color color = rayTracer.traceRay(ray);
+        imageWriter.writePixel(j, i, color);
+    }
+
+    /**
+     * Prints a grid on the image with the specified interval and color.
+     *
+     * @param interval the interval between grid lines
+     * @param color    the color of the grid lines
+     * @return this Camera instance
+     * @throws MissingResourceException if the imageWriter is not set
+     */
+    public Camera printGrid(int interval, Color color) {
+        if (imageWriter == null) {
+            throw new MissingResourceException(MISSING_RENDERING_DATA, CAMERA_CLASS_NAME, "imageWriter");
+        }
+
+        int nx = imageWriter.getNx();
+        int ny = imageWriter.getNy();
+        for (int x = 0; x < nx; x++) {
+            for (int y = 0; y < ny; y++) {
+                if (x % interval == 0 || y % interval == 0)
+                    imageWriter.writePixel(x, y, color);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * Writes the image to a file.
+     *
+     * @throws MissingResourceException if the imageWriter is not set
+     */
+    public void writeToImage() {
+        if (imageWriter == null) {
+            throw new MissingResourceException(MISSING_RENDERING_DATA, CAMERA_CLASS_NAME, "imageWriter");
+        }
+        imageWriter.writeToImage();
+    }
+
+    /**
      * The Builder class for constructing Camera instances.
      */
     public static class Builder {
         private final Camera camera = new Camera();
+
         /**
          * Sets the location of the camera.
          *
@@ -158,6 +229,28 @@ public class Camera implements Cloneable{
         }
 
         /**
+         * Sets the ImageWriter for the camera.
+         *
+         * @param imageWriter the ImageWriter to set
+         * @return this Builder instance
+         */
+        public Builder setImageWriter(ImageWriter imageWriter) {
+            camera.imageWriter = imageWriter;
+            return this;
+        }
+
+        /**
+         * Sets the RayTracer for the camera.
+         *
+         * @param rayTracer the RayTracer to set
+         * @return this Builder instance
+         */
+        public Builder setRayTracer(RayTracerBase rayTracer) {
+            camera.rayTracer = rayTracer;
+            return this;
+        }
+
+        /**
          * Builds the Camera instance, ensuring all necessary fields are initialized.
          *
          * @return a clone of the Camera object with calculated fields
@@ -173,6 +266,12 @@ public class Camera implements Cloneable{
             }
             if (camera.vTo == null) {
                 throw new MissingResourceException(MISSING_RENDERING_DATA, CAMERA_CLASS_NAME, "vTo");
+            }
+            if (camera.imageWriter == null) {
+                throw new MissingResourceException(MISSING_RENDERING_DATA, CAMERA_CLASS_NAME, "imageWriter");
+            }
+            if (camera.rayTracer == null) {
+                throw new MissingResourceException(MISSING_RENDERING_DATA, CAMERA_CLASS_NAME, "rayTracer");
             }
             if (!isZero(camera.vTo.dotProduct(camera.vUp))) {
                 throw new MissingResourceException("", CAMERA_CLASS_NAME, "the vTo and vUp are not orthogonal");

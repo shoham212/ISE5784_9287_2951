@@ -65,6 +65,31 @@ public class Ray {
         {return  head;}
         return head.add(direction.scale((t)));
     }
+
+    /**
+     * Finds the closest point to the starting point of the ray
+     * from a collection of points.
+     * @param points a collection of points
+     * @return the point closest to the starting point of the ray
+     */
+    public Point findClosestPoint(List<Point> points) {
+
+        if (points==null || points.isEmpty()){
+            return null;
+        }
+
+        Point closesP = points.get(0);
+        double closesD = head.distance(closesP);
+
+        for(Point point: points){
+            double distance = head.distance(point);
+            if(distance<closesD){
+                closesD=distance;
+                closesP=point;
+            }
+        }
+        return closesP;
+    }
 }
 
 
