@@ -55,5 +55,16 @@ public class Ray {
         return "Ray [head=" + head + ", direction=" + direction + "]";
     }
 
-
+    /**
+     * Ray function for calculating a point on the beam line at a given distance from the beam head
+     * @param t distance from the beam head
+     * @return a point on the beam line
+     */
+    public Point getPoint(double t) {
+        if (isZero(t))
+        {return  head;}
+        return head.add(direction.scale((t)));
+    }
 }
+
+

@@ -3,8 +3,12 @@ package geometries;
 import org.junit.jupiter.api.Test;
 import primitives.Double3;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
+
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 /**
@@ -55,4 +59,30 @@ public class Plane implements Geometry {
         return normal;
     }
 
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        //The beginning of the beam is exactly at the reference point of the plane. A given point inside the plane.
+        try {
+            q.subtract(ray.getHead());
+        } catch (IllegalArgumentException ignore) {
+            return null;
+        }
+
+        double nv = normal.dotProduct(ray.getDirection());
+        //A beam parallel to the plane
+        if (isZero(nv)) {
+            return null;
+        }
+
+        double t = alignZero(normal.dotProduct(q.subtract(ray.getHead())) / nv);
+
+        //Neither parallel nor perpendicular but starts on a plane
+        if(isZero(t)) {return null;}
+
+        //perpendicular to the plane
+        if (t>0) {
+            return (List.of(ray.getPoint(t)));
+        }
+        return null;
+    }
 }

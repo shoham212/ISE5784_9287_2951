@@ -8,7 +8,7 @@ import primitives.Vector;
  * Any class implementing this interface must provide methods to calculate various
  * properties of the shape.
  */
-public interface Geometry {
+public interface Geometry extends Intersectable {
     /**
      *An unrealized function is to calculate a normal for any geometric surface.
      */
