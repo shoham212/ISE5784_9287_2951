@@ -7,18 +7,19 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 /**
- * composite class for all geometries object implementing {@link Intersectable}
+ * Composite class for all geometries object implementing {@link Intersectable}.
  */
-public class Geometries implements Intersectable {
+public class Geometries extends Intersectable {
     public final List<Intersectable> geometries = new LinkedList<Intersectable>();
 
     /**
-     * empty geometries constructor
+     * Empty geometries constructor.
      */
-    public Geometries(){};
+    public Geometries() {}
 
     /**
      * Constructs a new Geometries object with the specified intersectable geometries.
+     *
      * @param geometries The intersectable geometries to add to this collection.
      */
     public Geometries(Intersectable... geometries) {
@@ -27,20 +28,21 @@ public class Geometries implements Intersectable {
 
     /**
      * Adds one or more geometries to this collection.
+     *
      * @param geometries The geometries to add to this collection.
      */
-    public void add(Intersectable... geometries){
+    public void add(Intersectable... geometries) {
         Collections.addAll(this.geometries, geometries);
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
-        LinkedList<Point> points=null;
-        for(var geometry: geometries){
-            var geometryList = geometry.findIntersections(ray);
-            if(geometryList !=null){
-                if(points==null){
-                    points=new LinkedList<>();
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        LinkedList<GeoPoint> points = null;
+        for (var geometry : geometries) {
+            var geometryList = geometry.findGeoIntersectionsHelper(ray);
+            if (geometryList != null) {
+                if (points == null) {
+                    points = new LinkedList<>();
                 }
                 points.addAll(geometryList);
             }

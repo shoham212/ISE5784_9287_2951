@@ -1,41 +1,39 @@
 package primitives;
 
-//import static primitives.Util.isZero;
-
-//import java.util.Objects;
-
 /**
- * @author Shoham&Efrat
- * Point class represent a point in a 3D coordinate system
+ * Point class represents a point in a 3D coordinate system.
+ *
+ * author Shoham&Efrat
  */
-
-public class Point
-{
+public class Point {
     /**
-     * The Double3 object that represents our point has 3 doubles with x, y, z coordinates
+     * The Double3 object that represents our point has 3 doubles with x, y, z coordinates.
      */
     final protected Double3 xyz;
+
     /**
-     * A Point object that represent a point with all zero coordinates
+     * A Point object that represents a point with all zero coordinates.
      */
     public static final Point ZERO = new Point(0, 0, 0);
 
     /**
-     * Point constructor to initialize a new Point object using 3 doubles
-     * @param d1 double that represent the x value in a point
-     * @param d2 double that represent the y value in a point
-     * @param d3 double that represent the z value in a point
+     * Point constructor to initialize a new Point object using 3 doubles.
+     *
+     * @param d1 double that represents the x value in a point
+     * @param d2 double that represents the y value in a point
+     * @param d3 double that represents the z value in a point
      */
-    public Point(double d1,double d2, double d3){
-        xyz = new Double3(d1,d2,d3);
+    public Point(double d1, double d2, double d3) {
+        xyz = new Double3(d1, d2, d3);
     }
 
     /**
-     * Point constructor to initialize a new Point object with Double3
-     * @param d Double3 object that represent an x, y, z coordinate
+     * Point constructor to initialize a new Point object with Double3.
+     *
+     * @param d Double3 object that represents x, y, z coordinates
      */
-    Point(Double3 d){
-        xyz=d;
+    Point(Double3 d) {
+        xyz = d;
     }
 
     /**
@@ -59,7 +57,6 @@ public class Point
         return xyz.d3;
     }
 
-
     @Override
     public String toString() {
         return "Point [xyz=" + xyz + "]";
@@ -68,29 +65,34 @@ public class Point
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        return (obj instanceof Point other)
-                && xyz.equals(other.xyz);
+        return (obj instanceof Point other) && xyz.equals(other.xyz);
     }
 
     /**
-     * Add function that takes a vector (uses the point behind the vector class)
-     * and add it to a point by adding their corresponding coordinates (using Double3 add function)
-     * @param v the vector that's being added to the point
-     * @return A new Point object of the result point
+     * Adds a vector to this point.
+     *
+     * @param v the vector to add to the point
+     * @return A new Point object resulting from the addition
      */
-    public Point add(Vector v) {return new Point(xyz.add(v.xyz)); }
-    /**
-     * Subtract function that takes a point and subtract with other point by using their corresponding coordinates
-     * (using Double3 subtract function)
-     * @param p the point that's being subtracted
-     * @return A new Vector object of the result point
-     */
-    public Vector subtract(Point p) {return new Vector(this.xyz.subtract(p.xyz));}
+    public Point add(Vector v) {
+        return new Point(xyz.add(v.xyz));
+    }
 
     /**
-     * distanceSquared function that's calculate the distance between two points
-     * @param p Point object that its distance has being measured from the current point
-     * @return The squared distance between the two point (type: double)
+     * Subtracts another point from this point.
+     *
+     * @param p the point to subtract
+     * @return A new Vector object resulting from the subtraction
+     */
+    public Vector subtract(Point p) {
+        return new Vector(this.xyz.subtract(p.xyz));
+    }
+
+    /**
+     * Calculates the squared distance between this point and another point.
+     *
+     * @param p Point object to measure the distance from the current point
+     * @return The squared distance between the two points
      */
     public double distanceSquared(Point p) {
         double dx = xyz.d1 - p.xyz.d1;
@@ -101,9 +103,12 @@ public class Point
     }
 
     /**
-     * distanceSquared function that's calculate the distance between two points (using distanceSquared squared root)
-     * @param p Point object that its distance has being measured from the current point
-     * @return The distance between the two point (type: double)
+     * Calculates the distance between this point and another point.
+     *
+     * @param p Point object to measure the distance from the current point
+     * @return The distance between the two points
      */
-    public double distance(Point p) { return Math.sqrt(distanceSquared(p));}
+    public double distance(Point p) {
+        return Math.sqrt(distanceSquared(p));
+    }
 }

@@ -3,18 +3,21 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-
 import java.util.List;
 
 import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 /**
- * @author Shoham&Efrat
+ * The Triangle class represents a three-dimensional triangular geometric shape.
+ * It extends the Polygon class and inherits its properties.
  *
+ * author Shoham&Efrat
  */
 public class Triangle extends Polygon {
     /**
-     * constructor for triangle by 3 points
+     * Constructs a triangle with the specified three points.
+     *
      * @param p1 coordinate value for X axis
      * @param p2 coordinate value for Y axis
      * @param p3 coordinate value for Z axis
@@ -24,36 +27,35 @@ public class Triangle extends Polygon {
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
-        // we take three vectors from the same starting point and connect them to the triangle's vertices
-        // we get a pyramid
-
-        //Check if the ray intersect the plane.
-        if (plane.findIntersections(ray) == null) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+        List<Point> intersections = plane.findIntersections(ray);
+        // if there are no intersections with the plane, there are no intersections with the triangle
+        if (intersections == null) {
             return null;
         }
-        // the three vectors from the same starting point
+
+        // if the ray intersects the plane at the triangle's plane
         Vector v1 = vertices.get(0).subtract(ray.getHead());
         Vector v2 = vertices.get(1).subtract(ray.getHead());
         Vector v3 = vertices.get(2).subtract(ray.getHead());
 
-
-        //we want to get a normal for each pyramid's face so we do the crossProduct
         Vector n1 = v1.crossProduct(v2).normalize();
         Vector n2 = v2.crossProduct(v3).normalize();
         Vector n3 = v3.crossProduct(v1).normalize();
 
-        // the ray's vector  - it has the same starting point as the three vectors from above
-        Vector v = ray.getDirection();
+        double s1 = ray.getDirection().dotProduct(n1);
+        double s2 = ray.getDirection().dotProduct(n2);
+        double s3 = ray.getDirection().dotProduct(n3);
 
-        // check if the vector's direction (from Subtraction between the ray's vector to each vector from above) are equal
-        // if not - there is no intersection point between the ray and the triangle
-        if ((alignZero(v.dotProduct(n1)) > 0 && alignZero(v.dotProduct(n2)) > 0 && alignZero(v.dotProduct(n3)) > 0) ||
-                (alignZero(v.dotProduct(n1)) < 0 && alignZero(v.dotProduct(n2)) < 0 && alignZero(v.dotProduct(n3)) < 0)) {
-
-            return plane.findIntersections(ray);
+        // if the ray is parallel to the triangle's plane
+        if (isZero(s1) || isZero(s2) || isZero(s3)) {
+            return null;
         }
+
+        if ((s1 > 0 && s2 > 0 && s3 > 0) || (s1 < 0 && s2 < 0 && s3 < 0)) {
+            return List.of(new GeoPoint(this, intersections.get(0)));
+        }
+        // if the ray intersects the plane but not the triangle
         return null;
     }
-
 }

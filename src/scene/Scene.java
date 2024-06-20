@@ -1,13 +1,12 @@
-/**
- * The Scene class represents a scene in a computer graphics environment.
- * It contains information such as the scene's name, background color,
- * ambient light, and geometries present in the scene.
- */
 package scene;
 
 import geometries.Geometries;
 import lighting.AmbientLight;
+import lighting.LightSource;
 import primitives.Color;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Scene {
 
@@ -22,6 +21,9 @@ public class Scene {
 
     /** The geometries present in the scene. */
     public Geometries geometries = new Geometries();
+
+    /** The light sources present in the scene. */
+    public List<LightSource> lights = new LinkedList<>();
 
     /**
      * Constructs a new Scene with the specified name.
@@ -65,4 +67,14 @@ public class Scene {
         return this;
     }
 
+    /**
+     * Sets the light sources present in the scene.
+     *
+     * @param lights the light sources to set
+     * @return this Scene object for method chaining
+     */
+    public Scene setLights(List<LightSource> lights) {
+        this.lights = lights;
+        return this;
+    }
 }

@@ -1,7 +1,7 @@
 package renderer;
+
 import primitives.*;
 import scene.Scene;
-
 
 /**
  * The {@code RayTracerBase} class serves as an abstract base class for ray tracing in a given scene.

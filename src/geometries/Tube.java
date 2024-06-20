@@ -1,6 +1,6 @@
 package geometries;
 
-import  primitives.Ray;
+import primitives.Ray;
 import primitives.Point;
 import primitives.Vector;
 
@@ -9,11 +9,12 @@ import java.util.List;
 import static primitives.Util.isZero;
 
 /**
- * @author Shoham&Efrat
  * The Tube class represents a three-dimensional cylindrical geometric shape
  * with a constant radius along its length. It extends the RadialGeometry abstract class
  * and inherits its radius property. A tube is characterized by its axis, which is a ray
  * representing the direction and origin of the cylinder.
+ *
+ * author Shoham&Efrat
  */
 public class Tube extends RadialGeometry {
     /**
@@ -24,28 +25,27 @@ public class Tube extends RadialGeometry {
     /**
      * Constructs a tube with the specified axis and radius.
      *
-     * @param a The axis of the tube, represented by a ray.
-     * @param r The radius of the tube.
+     * @param axis   The axis of the tube, represented by a ray.
+     * @param radius The radius of the tube.
      */
-    public Tube(Ray a, double r) {
-        super(r);
-        axis = a;
+    public Tube(Ray axis, double radius) {
+        super(radius);
+        this.axis = axis;
     }
 
     @Override
-    public Vector getNormal(Point p) {
-        double t = (p.subtract(axis.getHead())).dotProduct(axis.getDirection());
+    public Vector getNormal(Point point) {
+        double t = (point.subtract(axis.getHead())).dotProduct(axis.getDirection());
         if (isZero(t)) {
-            return (p.subtract(axis.getHead())).normalize();
+            return (point.subtract(axis.getHead())).normalize();
         } else {
             Point o = axis.getPoint(t);
-            return (p.subtract(o)).normalize();
+            return (point.subtract(o)).normalize();
         }
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray)
-    {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         return null;
     }
 }

@@ -1,7 +1,6 @@
 package renderer;
 
 import java.util.MissingResourceException;
-
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
@@ -108,9 +107,11 @@ public class Camera implements Cloneable {
         int nx = imageWriter.getNx();
         int ny = imageWriter.getNy();
 
-        for (int i = 0; i < nx; ++i)
-            for (int j = 0; j < ny; ++j)
+        for (int i = 0; i < nx; ++i) {
+            for (int j = 0; j < ny; ++j) {
                 castRay(nx, ny, j, i);
+            }
+        }
         return this;
     }
 
@@ -145,8 +146,9 @@ public class Camera implements Cloneable {
         int ny = imageWriter.getNy();
         for (int x = 0; x < nx; x++) {
             for (int y = 0; y < ny; y++) {
-                if (x % interval == 0 || y % interval == 0)
+                if (x % interval == 0 || y % interval == 0) {
                     imageWriter.writePixel(x, y, color);
+                }
             }
         }
         return this;
@@ -154,7 +156,6 @@ public class Camera implements Cloneable {
 
     /**
      * Writes the image to a file.
-     *
      * @throws MissingResourceException if the imageWriter is not set
      */
     public void writeToImage() {

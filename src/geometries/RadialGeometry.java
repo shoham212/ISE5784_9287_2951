@@ -8,26 +8,28 @@ import primitives.Vector;
  * This class serves as an abstract base class for various geometric shapes
  * such as spheres, cylinders, and cones.
  */
-public abstract class RadialGeometry implements Geometry{
+public abstract class RadialGeometry extends Geometry {
     /** The radius of the radial geometry. */
     final protected double radius;
 
     /**
      * Constructs a radial geometry with the specified radius.
-     * @param r The radius of the radial geometry.
+     *
+     * @param radius The radius of the radial geometry.
      */
-    public RadialGeometry(double r){
-        radius = r;
+    public RadialGeometry(double radius) {
+        this.radius = radius;
     }
+
     /**
      * Calculates and returns the normal vector to the radial geometry at the specified point.
-     * @param p The point on the radial geometry for which the normal vector is to be calculated.
+     *
+     * @param point The point on the radial geometry for which the normal vector is to be calculated.
      * @return The normal vector to the radial geometry at the specified point. Since the shape
      *         is radial, the normal vector is constant throughout and is returned as null.
      */
     @Override
-    public Vector getNormal(Point p) {
+    public Vector getNormal(Point point) {
         return null;
     }
 }
-

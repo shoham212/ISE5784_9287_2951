@@ -1,23 +1,28 @@
 package primitives;
+
 import static primitives.Util.isZero;
 import java.util.List;
-/**
- * @author Shoham&Efrat
- * A class of Ray represents a set of points on a straight line that are on one side of a given point called the head of the ray.
- */
+import geometries.Intersectable.GeoPoint;
 
+/**
+ * A class representing a ray, which is a set of points on a straight line that are on one side of a given point called the head of the ray.
+ *
+ * author Shoham&Efrat
+ */
 public class Ray {
     /**
-     * The start of the line
+     * The start of the line.
      */
     private final Point head;
+
     /**
-     * The direction vector that's represent the direction of the line
+     * The direction vector that represents the direction of the line.
      */
     private final Vector direction;
 
     /**
-     * Getter method for head
+     * Getter method for head.
+     *
      * @return the head point of the ray
      */
     public Point getHead() {
@@ -25,7 +30,8 @@ public class Ray {
     }
 
     /**
-     * Getter method for direction
+     * Getter method for direction.
+     *
      * @return the direction vector of the ray
      */
     public Vector getDirection() {
@@ -33,14 +39,14 @@ public class Ray {
     }
 
     /**
-     * Ray constructor to initialize a new Ray object with head and direction
-     * (direction should be normalized)
-     * @param p a new head point to assign head with
-     * @param v a new direction vector to assign direction with
+     * Ray constructor to initialize a new Ray object with head and direction (direction should be normalized).
+     *
+     * @param head a new head point to assign head with
+     * @param direction a new direction vector to assign direction with
      */
-    public Ray(Point p, Vector v){
-        head= p;
-        direction= v.normalize();
+    public Ray(Point head, Vector direction) {
+        this.head = head;
+        this.direction = direction.normalize();
     }
 
     @Override
@@ -56,40 +62,49 @@ public class Ray {
     }
 
     /**
-     * Ray function for calculating a point on the beam line at a given distance from the beam head
+     * Ray function for calculating a point on the beam line at a given distance from the beam head.
+     *
      * @param t distance from the beam head
      * @return a point on the beam line
      */
     public Point getPoint(double t) {
-        if (isZero(t))
-        {return  head;}
-        return head.add(direction.scale((t)));
+        if (isZero(t)) {
+            return head;
+        }
+        return head.add(direction.scale(t));
     }
 
     /**
-     * Finds the closest point to the starting point of the ray
-     * from a collection of points.
+     * Finds the closest point to the starting point of the ray from a collection of points.
+     *
      * @param points a collection of points
      * @return the point closest to the starting point of the ray
      */
     public Point findClosestPoint(List<Point> points) {
+        return points == null || points.isEmpty() ? null
+                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
+    }
 
-        if (points==null || points.isEmpty()){
+    /**
+     * Finds the closest GeoPoint to the starting point of the ray from a collection of GeoPoints.
+     *
+     * @param points a collection of GeoPoints
+     * @return the GeoPoint closest to the starting point of the ray
+     */
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> points) {
+        if (points == null) {
             return null;
         }
-
-        Point closesP = points.get(0);
-        double closesD = head.distance(closesP);
-
-        for(Point point: points){
-            double distance = head.distance(point);
-            if(distance<closesD){
-                closesD=distance;
-                closesP=point;
+        GeoPoint closest = points.get(0);
+        double distance = head.distance(closest.point);
+        for (GeoPoint p : points) {
+            double currentDistance = head.distance(p.point);
+            if (currentDistance < distance) {
+                closest = p;
+                distance = currentDistance;
             }
         }
-        return closesP;
+        return closest;
     }
 }
-
 
