@@ -10,6 +10,9 @@ import geometries.Intersectable.GeoPoint;
  * author Shoham&Efrat
  */
 public class Ray {
+
+    private final double DELTA = 1e-10;
+
     /**
      * The start of the line.
      */
@@ -47,6 +50,23 @@ public class Ray {
     public Ray(Point head, Vector direction) {
         this.head = head;
         this.direction = direction.normalize();
+    }
+
+    /**
+     * constructor for Ray
+     * set the ray with the sliding of
+     * the initial point in the delta on the normal
+     *
+     * @param p the initial point
+     * @param v the direction of the ray - must already be normalized
+     * @param n the normal
+     */
+    public Ray(Point p, Vector v, Vector n) {
+        //point + normal.scale(±DELTA)
+        double nv = n.dotProduct(v);
+        Vector normalEpsilon = n.scale((nv > 0 ? DELTA : -DELTA));
+        head = p.add(normalEpsilon);
+        direction = v;
     }
 
     @Override
