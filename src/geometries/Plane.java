@@ -17,10 +17,14 @@ import static primitives.Util.isZero;
  */
 public class Plane extends Geometry {
 
-    /** A point on the plane. */
+    /**
+     * A point on the plane.
+     */
     private final Point q;
 
-    /** The normal vector to the plane. */
+    /**
+     * The normal vector to the plane.
+     */
     private final Vector normal;
 
     /**
@@ -63,11 +67,9 @@ public class Plane extends Geometry {
     }
 
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
         // The beginning of the beam is exactly at the reference point of the plane. A given point inside the plane.
-        try {
-            q.subtract(ray.getHead());
-        } catch (IllegalArgumentException ignore) {
+        if (ray.getHead().equals(q)) {
             return null;
         }
 
@@ -85,10 +87,13 @@ public class Plane extends Geometry {
         }
 
         // Perpendicular to the plane
-        if (t > 0) {
+        if (t > 0 && alignZero(t - maxDistance) <= 0) {
             return List.of(new GeoPoint(this, ray.getPoint(t)));
         }
 
         return null;
     }
+
 }
+
+

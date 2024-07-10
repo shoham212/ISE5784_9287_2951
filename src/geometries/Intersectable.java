@@ -64,22 +64,37 @@ public abstract class Intersectable {
     }
 
     /**
-     * Finds the intersection points of a ray with the geometry.
+     * Finds all intersection points between a given ray and the geometries in the scene.
      *
-     * @param ray the ray that intersects the geometry.
-     * @return a list of GeoPoint objects representing the intersections of the ray with the geometry.
+     * @param ray the ray to check for intersections
+     * @return a list of intersection points (GeoPoint) or {@code null} if there are no intersections
      */
-    public List<GeoPoint> findGeoIntersections(Ray ray) {
-        return this.findGeoIntersectionsHelper(ray);
+    public final List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
     }
 
     /**
-     * A helper method to find the intersection points of a ray with the geometry.
+     * Finds all intersection points between a given ray and the geometries in the scene, within a specified maximum distance.
      *
-     * @param ray the ray that intersects the geometry.
-     * @return a list of GeoPoint objects representing the intersections of the ray with the geometry.
+     * @param ray the ray to check for intersections
+     * @param maxDistance the maximum distance to check for intersections
+     * @return a list of intersection points (GeoPoint) or {@code null} if there are no intersections within the specified distance
      */
-    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+
+    /**
+     * Helper method to find all intersection points between a given ray and the geometries in the scene, within a specified maximum distance.
+     * This method should be implemented by subclasses to provide the actual intersection logic.
+     *
+     * @param ray the ray to check for intersections
+     * @param maxDistance the maximum distance to check for intersections
+     * @return a list of intersection points (GeoPoint) or {@code null} if there are no intersections within the specified distance
+     */
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
+
+
 }
 
 

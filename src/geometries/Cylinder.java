@@ -38,12 +38,11 @@ public class Cylinder extends Tube {
         // if the given point is on one of the bases of the cylinder, we just return a normal vector to the base (dir)
         if (isZero(t) || isZero(t - this.height)) {
             return this.axis.getDirection();
+            // if t==0 or t-the height =0 so return the direction of axis
         }
         return super.getNormal(point);
     }
 
     @Override
-    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-        return null;
-    }
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {return null;}
 }

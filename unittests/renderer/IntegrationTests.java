@@ -4,6 +4,8 @@ import geometries.*;
 
 import org.junit.jupiter.api.Test;
 import primitives.*;
+import scene.Scene;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -46,7 +48,10 @@ public class IntegrationTests {
     void sphereTest() {
         camera = builder.setDirection(new Vector(0, 0, -1), new Vector(0, 1, 0))
                 .setVpSize(3, 3)
+                .setLocation(new Point(0, 0, 0.5))
                 .setVpDistance(1)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         Sphere sphere = new Sphere(1, new Point(0, 0, -3));
         // TC01: Sphere is in front of the view plane, 2 intersections
@@ -57,6 +62,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setLocation(new Point(0, 0, 0.5))
                 .setVpDistance(1)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         sphere = new Sphere(2.5, new Point(0, 0, -2.5));
         assertEquals(18, intersectionsSum(camera, sphere), "Sphere covers the entire view plane");
@@ -66,6 +73,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setLocation(new Point(0, 0, 0.5))
                 .setVpDistance(1)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         sphere = new Sphere(2, new Point(0, 0, -2));
         assertEquals(10, intersectionsSum(camera, sphere), "Sphere partially covers the view plane");
@@ -75,6 +84,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setLocation(new Point(0, 0, 1))
                 .setVpDistance(1)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         sphere = new Sphere(4, Point.ZERO);
         assertEquals(9, intersectionsSum(camera, sphere), "View plane is inside the sphere");
@@ -84,6 +95,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setLocation(new Point(0, 0, 0.5))
                 .setVpDistance(1)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         sphere = new Sphere(0.5, new Point(0, 0, 1));
         assertEquals(0, intersectionsSum(camera, sphere), "Sphere is behind the camera");
@@ -99,6 +112,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setVpDistance(1)
                 .setLocation(Point.ZERO)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         Plane plane = new Plane(new Point(0, 0, -2), new Vector(0, 0, 1));
         assertEquals(9, intersectionsSum(camera, plane), "Plane is in front of the view plane");
@@ -126,6 +141,8 @@ public class IntegrationTests {
                 .setVpSize(3, 3)
                 .setVpDistance(1)
                 .setLocation(Point.ZERO)
+                .setRayTracer(new SimpleRayTracer(new Scene("Test")))
+                .setImageWriter(new ImageWriter("Test", 1, 1))
                 .build();
         Triangle triangle = new Triangle(new Point(-1, -1, -2),
                 new Point(1, -1, -2),

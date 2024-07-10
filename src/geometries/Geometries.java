@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Collections;
 import java.util.LinkedList;
 
+import static primitives.Util.alignZero;
+
 /**
  * Composite class for all geometries object implementing {@link Intersectable}.
  */
@@ -36,15 +38,19 @@ public class Geometries extends Intersectable {
     }
 
     @Override
-    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
         LinkedList<GeoPoint> points = null;
         for (var geometry : geometries) {
-            var geometryList = geometry.findGeoIntersectionsHelper(ray);
+            var geometryList = geometry.findGeoIntersectionsHelper(ray, maxDistance);
             if (geometryList != null) {
-                if (points == null) {
-                    points = new LinkedList<>();
+                for (GeoPoint gp : geometryList) {
+                    if (alignZero(gp.point.distance(ray.getHead()) - maxDistance) <= 0) {
+                        if (points == null) {
+                            points = new LinkedList<>();
+                        }
+                        points.add(gp);
+                    }
                 }
-                points.addAll(geometryList);
             }
         }
         return points;

@@ -46,7 +46,7 @@ public class PointLight extends Light implements LightSource {
      * @param kC the constant attenuation factor
      * @return the {@code PointLight} object itself for method chaining
      */
-    public PointLight setKc(Double kC) {
+    public PointLight setKc(double kC) {
         this.kC = kC;
         return this;
     }
@@ -57,7 +57,7 @@ public class PointLight extends Light implements LightSource {
      * @param kL the linear attenuation factor
      * @return the {@code PointLight} object itself for method chaining
      */
-    public PointLight setKl(Double kL) {
+    public PointLight setKl(double kL) {
         this.kL = kL;
         return this;
     }
@@ -68,7 +68,7 @@ public class PointLight extends Light implements LightSource {
      * @param kQ the quadratic attenuation factor
      * @return the {@code PointLight} object itself for method chaining
      */
-    public PointLight setKq(Double kQ) {
+    public PointLight setKq(double kQ) {
         this.kQ = kQ;
         return this;
     }
@@ -87,4 +87,10 @@ public class PointLight extends Light implements LightSource {
         // otherwise, return the normalized vector from the light source to the point
         return p.subtract(position).normalize();
     }
+
+    @Override
+    public double getDistance(Point point) {
+        return position.distance(point);
+    }
+
 }

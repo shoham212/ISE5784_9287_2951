@@ -68,10 +68,11 @@ public class Ray {
      * @return a point on the beam line
      */
     public Point getPoint(double t) {
-        if (isZero(t)) {
-            return head;
-        }
-        return head.add(direction.scale(t));
+        return isZero(t) ? head : head.add(direction.scale(t));
+        //if (isZero(t)) {
+        //    return head;
+        //}
+       // return head.add(direction.scale(t));
     }
 
     /**

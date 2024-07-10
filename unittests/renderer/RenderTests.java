@@ -45,7 +45,6 @@ public class RenderTests {
               .writeToImage();
    }
 
-
    /**
     * Produce a scene with basic 3D model - including individual lights of the
     * bodies and render it into a png image with a grid
@@ -72,8 +71,6 @@ public class RenderTests {
               .printGrid(100, new Color(WHITE))
               .writeToImage();
    }
-
-
-
 }
+
 

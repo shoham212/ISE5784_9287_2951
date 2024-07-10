@@ -31,17 +31,17 @@ public class SpotLight extends PointLight {
     }
 
     @Override
-    public SpotLight setKc(Double kC) {
+    public SpotLight setKc(double kC) {
         return (SpotLight) super.setKc(kC);
     }
 
     @Override
-    public SpotLight setKl(Double kL) {
+    public SpotLight setKl(double kL) {
         return (SpotLight) super.setKl(kL);
     }
 
     @Override
-    public SpotLight setKq(Double kQ) {
+    public SpotLight setKq(double kQ) {
         return (SpotLight) super.setKq(kQ);
     }
 

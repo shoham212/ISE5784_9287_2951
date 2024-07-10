@@ -14,13 +14,40 @@ import static primitives.Util.alignZero;
  * SimpleRayTracer class represents a simple ray tracer
  */
 public class SimpleRayTracer extends RayTracerBase {
+
+    /**
+     * A small delta value used for numerical stability and precision in calculations.
+     */
+    private static final double DELTA = 0.1;
+
+    /**
+     * Determines if a given point on a geometry is unshaded by checking for intersections between
+     * the point and a light source.
+     *
+     * @param gp the geometric point on the geometry being tested
+     * @param l the direction vector from the point to the light source
+     * @param n the normal vector at the point on the geometry
+     * @param nl the dot product of the normal vector and the light direction vector
+     * @param ls the light source being considered
+     * @return {@code true} if the point is unshaded (i.e., no objects block the light); {@code false} otherwise
+     */
+    private boolean unshaded(GeoPoint gp, Vector l, Vector n, double nl, LightSource ls) {
+        Vector lightDirection = l.scale(-1);
+        Vector epsVector = n.scale(nl < 0 ? DELTA : -DELTA);
+        Point point = gp.point.add(epsVector);
+        Ray lightRay = new Ray(point, lightDirection);
+        List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay, ls.getDistance(gp.point));
+
+        return intersections == null || intersections.isEmpty();
+    }
+
     public SimpleRayTracer(Scene scene) {
         super(scene);
     }
 
     @Override
     public Color traceRay(Ray ray) {
-        List<GeoPoint> points = scene.geometries.findGeoIntersectionsHelper(ray);
+        List<GeoPoint> points = scene.geometries.findGeoIntersections(ray);
         if (points == null) {
             return scene.background;
         }
@@ -36,6 +63,7 @@ public class SimpleRayTracer extends RayTracerBase {
      * @return The color of the point.
      */
     private Color calcColor(GeoPoint geoPoint, Ray ray) {
+
         return scene.ambientLight.getIntensity().add(geoPoint.geometry.getEmission())
                 .add(calcLocalEffects(geoPoint, ray));
     }
@@ -64,7 +92,7 @@ public class SimpleRayTracer extends RayTracerBase {
             Vector l = lightSource.getL(intersection.point);
             double nl = alignZero(n.dotProduct(l));
 
-            if (nl * nv > 0) { // sign(nl) == sign(nv)
+            if (nl * nv > 0 && unshaded(intersection, l, n, nl, lightSource)) {
                 Color lightIntensity = lightSource.getIntensity(intersection.point);
                 color = color.add(calcDiffuse(kd, nl, lightIntensity),
                         calcSpecular(ks, l, n, nl, v, nShininess, lightIntensity));

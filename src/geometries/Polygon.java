@@ -7,6 +7,7 @@ import primitives.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 /**
@@ -78,8 +79,8 @@ public class Polygon extends Geometry {
    }
 
    @Override
-   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
-      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray);
+   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray, maxDistance);
       // if there are no intersections with the plane, there are no intersections with the polygon
       if (intersections == null) {
          return null;
@@ -87,7 +88,7 @@ public class Polygon extends Geometry {
 
       GeoPoint checkPoint = intersections.get(0);
       List<Vector> result = new ArrayList<>();
-      Point last = vertices.get(size - 1);
+      Point last = vertices.get(vertices.size() - 1);
       // we will use the method of ni = (pi - pi-1) x (pi-1 - Pinter) to check if the point is inside the polygon
       try {
          for (Point p : vertices) {
@@ -107,6 +108,13 @@ public class Polygon extends Geometry {
          // if the point is on the edge of the polygon
          return null;
       }
+
+      // Check if the intersection point is within the maxDistance
+      if (alignZero(checkPoint.point.distance(ray.getHead()) - maxDistance) > 0) {
+         return null;
+      }
+
       return intersections;
    }
+
 }
