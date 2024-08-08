@@ -5,6 +5,14 @@ package primitives;
  */
 public class Material {
 
+    // the specular light factor of the object material type
+    // Glossiness factor
+    public double kG = 0;
+    // Blurriness factor
+    public double kB = 0;
+    // Parameters for blur glass
+    public int numOfRays = 1;
+    public double blurGlassDistance = 1, blurGlassRadius = 1;
     /**
      * The diffuse reflection coefficient of the material.
      */
@@ -128,4 +136,40 @@ public class Material {
         this.kR = new Double3(kR);
         return this;
     }
+
+    /**
+     * Sets the radius for blur glass rendering.
+     *
+     * @param blurGlassRadius The radius to set.
+     * @return This Material object.
+     * @throws IllegalArgumentException if blurGlassRadius is less than or equal to
+     *                                  0.
+     */
+    public Material setBlurGlassRadius(double blurGlassRadius) {
+        if (blurGlassRadius <= 0)
+            throw new IllegalArgumentException("Illegal argument in setBlurGlassRadius");
+        this.blurGlassRadius = blurGlassRadius;
+        return this;
+    }
+
+    /**
+     * Sets the parameters for blur glass rendering.
+     *
+     * @param numOfRays The number of rays to set.
+     * @param distance  The distance to set.
+     * @param radius    The radius to set.
+     * @return This Material object.
+     * @throws IllegalArgumentException if any of the parameters is invalid.
+     */
+    public Material setBlurGlass(int numOfRays, double distance, double radius) {
+        if (numOfRays < 1 || distance <= 0 || radius <= 0)
+            throw new IllegalArgumentException("Illegal argument in setBlurGlass");
+
+        this.numOfRays = numOfRays;
+        this.blurGlassDistance = distance;
+        this.blurGlassRadius = radius;
+
+        return this;
+    }
+
 }

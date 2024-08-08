@@ -5,6 +5,7 @@ import primitives.Ray;
 import primitives.Vector;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static primitives.Util.alignZero;
@@ -78,43 +79,38 @@ public class Polygon extends Geometry {
       return plane.getNormal();
    }
 
+
    @Override
-   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
-      List<GeoPoint> intersections = plane.findGeoIntersectionsHelper(ray, maxDistance);
-      // if there are no intersections with the plane, there are no intersections with the polygon
-      if (intersections == null) {
+   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance){
+      List<GeoPoint> intersections=plane.findGeoIntersections(ray, distance);
+      //if there are no intersections with the plane, there are no intersections with the polygon
+      if(intersections==null){
          return null;
       }
 
-      GeoPoint checkPoint = intersections.get(0);
-      List<Vector> result = new ArrayList<>();
-      Point last = vertices.get(vertices.size() - 1);
-      // we will use the method of ni = (pi - pi-1) x (pi-1 - Pinter) to check if the point is inside the polygon
-      try {
-         for (Point p : vertices) {
-            // we will add all the vectors to the list
+      GeoPoint checkPoint=intersections.get(0);
+      List<Vector> result=new LinkedList<>();
+      Point last=vertices.get(size-1);
+      //we will use the method of ni=(pi-pi-1)x(pi-1-Pinter) to check if the point is inside the polygon
+      try{
+         for(Point p:vertices){//we will add all of the vectors to the list
             result.add(p.subtract(last).crossProduct(last.subtract(checkPoint.point)));
-            last = p;
+            last=p;
          }
-         Vector lastVec = result.get(result.size() - 1);
-         for (Vector v : result) {
-            // we will check if the vectors are in the same direction
-            if (v.dotProduct(lastVec) <= 0) {
+         Vector lastVec=result.getLast();
+         for(Vector v:result){//we will check if the vectors are in the same direction
+            if(v.dotProduct(lastVec)<=0){
                return null;
             }
-            lastVec = v;
+            lastVec=v;
          }
-      } catch (IllegalArgumentException e) {
-         // if the point is on the edge of the polygon
+      }
+      //if the point is on the edge of the polygon
+      catch (IllegalArgumentException e){
          return null;
       }
-
-      // Check if the intersection point is within the maxDistance
-      if (alignZero(checkPoint.point.distance(ray.getHead()) - maxDistance) > 0) {
-         return null;
-      }
-
-      return intersections;
+      return List.of(new GeoPoint(this,checkPoint.point));
    }
+
 
 }

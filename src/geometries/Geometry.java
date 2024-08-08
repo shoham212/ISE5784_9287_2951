@@ -5,61 +5,46 @@ import primitives.Material;
 import primitives.Point;
 import primitives.Vector;
 
-/**
- * The Geometry class represents a geometric shape in a three-dimensional space.
- * Any class implementing this class must provide methods to calculate various
- * properties of the shape.
- */
-public abstract class Geometry extends Intersectable {
-
-    protected Color emission = Color.BLACK;
-    private Material material = new Material();
-
+public  abstract class   Geometry extends Intersectable {
+    private Color emission = Color.BLACK; // the geometry's default color
+    private Material material = new Material(); // the material the geometry has made of
+    public abstract Vector getNormal(Point p);
     /**
-     * Returns the emission color of the geometry.
+     * getEmission function
      *
-     * @return the emission color of the geometry.
+     * @return the geometry's color
      */
-    public Color getEmission() {
-        return emission;
+    public  Color getEmission() {
+        return this.emission;
     }
 
     /**
-     * Returns the material properties of the geometry.
+     * setEmission function
      *
-     * @return the material properties of the geometry.
-     */
-    public Material getMaterial() {
-        return material;
-    }
-
-    /**
-     * Sets the emission color of the geometry.
-     *
-     * @param emission the emission color of the geometry.
-     * @return the geometry itself (for chaining calls).
+     * @param emission
+     * @return
      */
     public Geometry setEmission(Color emission) {
         this.emission = emission;
         return this;
     }
+    /**
+     * Get material of the geometry
+     *
+     * @return Material of the geometry
+     */
+    public Material getMaterial() {
+        return this.material;
+    }
 
     /**
-     * Sets the material properties of the geometry.
+     * Set material of the geometry
      *
-     * @param material the material properties to set.
-     * @return the geometry itself (for chaining calls).
+     * @param material the Material of the geometry
+     * @return the geometry itself
      */
     public Geometry setMaterial(Material material) {
         this.material = material;
         return this;
     }
-
-    /**
-     * An unrealized function to calculate a normal for any geometric surface.
-     *
-     * @param p the point on the geometric surface.
-     * @return the normal vector to the surface at the given point.
-     */
-    public abstract Vector getNormal(Point p);
 }

@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbea4eb-3e50-4058-b301-f700c5304560" name="Changes" comment="FINISHED">
-      <change afterPath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/renderer/baulingTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" afterDir="false" />
     </list>
+    <list id="9c825de4-3897-499f-8801-5ec91e5668cb" name="Changes by olete" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +44,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;shoham212&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/shoham212/ISE5784_9287_2951.git&quot;,
+    &quot;accountId&quot;: &quot;1dcbf9e3-9648-4132-84ca-6598ccc8a405&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -70,6 +88,10 @@
     "JUnit.LightsTests.spherePoint.executor": "Run",
     "JUnit.LightsTests.sphereSpotSharp.executor": "Run",
     "JUnit.LightsTests.trianglesDirectional.executor": "Run",
+    "JUnit.MINIP1.executor": "Run",
+    "JUnit.MINIP1.testBlurryGlass.executor": "Run",
+    "JUnit.MINIP1.testBlurryGlass2.executor": "Run",
+    "JUnit.MINIP1.twoSpheres.executor": "Run",
     "JUnit.PlaneTest.executor": "Run",
     "JUnit.PlaneTest.testFindIntersections.executor": "Run",
     "JUnit.PointTest.executor": "Run",
@@ -82,6 +104,25 @@
     "JUnit.RayTest.executor": "Run",
     "JUnit.RayTest.findClosestPoint.executor": "Run",
     "JUnit.ReflectionRefractionTests.executor": "Run",
+    "JUnit.ReflectionRefractionTests.modifiedTrianglesWithSmallerSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.planeSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.polygonSphereWithCylinders.executor": "Run",
+    "JUnit.ReflectionRefractionTests.polygonSphereWithCylindersInBounds.executor": "Run",
+    "JUnit.ReflectionRefractionTests.restrictedTrianglesSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.restrictedTrianglesWithCustomColors.executor": "Run",
+    "JUnit.ReflectionRefractionTests.restrictedTrianglesWithCylinders.executor": "Run",
+    "JUnit.ReflectionRefractionTests.singleTriangleSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.testGenerateBowlingSceneImage.executor": "Run",
+    "JUnit.ReflectionRefractionTests.testGenerateComplexGlowingShapesImage.executor": "Run",
+    "JUnit.ReflectionRefractionTests.testGenerateElegantGeometricShapesImage.executor": "Run",
+    "JUnit.ReflectionRefractionTests.testGenerateElegantGlowingShapesImage.executor": "Run",
+    "JUnit.ReflectionRefractionTests.testTheBonusImageStage7.executor": "Run",
+    "JUnit.ReflectionRefractionTests.trianglesSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.trianglesSphereBowlingAlley.executor": "Run",
+    "JUnit.ReflectionRefractionTests.trianglesSphereWithPlaneEffect.executor": "Run",
+    "JUnit.ReflectionRefractionTests.trianglesSphereWithVisibleStripe.executor": "Run",
+    "JUnit.ReflectionRefractionTests.trianglesTransparentSphere.executor": "Run",
+    "JUnit.ReflectionRefractionTests.twoSpheresOnMirrors.executor": "Run",
     "JUnit.RenderTests.aaaaaa.executor": "Run",
     "JUnit.RenderTests.basicRenderMultiColorTest.executor": "Run",
     "JUnit.RenderTests.executor": "Run",
@@ -97,6 +138,8 @@
     "JUnit.TriangleTest.testFindIntersections.executor": "Run",
     "JUnit.TubeTest.executor": "Run",
     "JUnit.VectorTest.executor": "Run",
+    "JUnit.baulingTests.executor": "Run",
+    "JUnit.baulingTests.restrictedTrianglesWithCylinders.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -131,7 +174,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5784_9287_2951">
+  <component name="RunManager">
     <configuration name="All in ISE5784_9287_2951" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_9287_2951" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,7 +183,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MINIP1.testBlurryGlass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_9287_2951" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.MINIP1" />
+      <option name="METHOD_NAME" value="testBlurryGlass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MINIP1.testBlurryGlass2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_9287_2951" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.MINIP1" />
+      <option name="METHOD_NAME" value="testBlurryGlass2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MINIP1.twoSpheres" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_9287_2951" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.MINIP1" />
+      <option name="METHOD_NAME" value="twoSpheres" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReflectionRefractionTests.twoSpheresOnMirrors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_9287_2951" />
       <extension name="coverage">
         <pattern>
@@ -150,53 +241,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="renderer" />
       <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_9287_2951" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShadowTests.sphereTriangleMove1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_9287_2951" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
-      <option name="METHOD_NAME" value="sphereTriangleMove1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShadowTests.sphereTriangleMove2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_9287_2951" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ShadowTests" />
-      <option name="METHOD_NAME" value="sphereTriangleMove2" />
+      <option name="METHOD_NAME" value="twoSpheresOnMirrors" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,11 +249,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MINIP1.testBlurryGlass2" />
+        <item itemvalue="JUnit.MINIP1.testBlurryGlass" />
         <item itemvalue="JUnit.All in ISE5784_9287_2951" />
-        <item itemvalue="JUnit.ReflectionRefractionTests" />
-        <item itemvalue="JUnit.ShadowTests.sphereTriangleMove2" />
-        <item itemvalue="JUnit.ShadowTests.sphereTriangleMove1" />
-        <item itemvalue="JUnit.ShadowTests" />
+        <item itemvalue="JUnit.MINIP1.twoSpheres" />
+        <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheresOnMirrors" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +330,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1720627493134</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎-00009" summary="FINISHED">
+      <option name="closed" value="true" />
+      <created>1720648117413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1720648117413</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

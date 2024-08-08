@@ -116,4 +116,14 @@ public class Vector extends Point {
         double length = length();
         return new Vector(xyz.d1 / length, xyz.d2 / length, xyz.d3 / length);
     }
+
+    /**
+     * create vector normal to this vector
+     */
+    public Vector createNormal() {
+        if (Util.isZero(this.xyz.d1))
+            return new Vector(1, 0, 0);
+
+        return new Vector(this.xyz.d2, -this.xyz.d1, 0).normalize();
+    }
 }
