@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbea4eb-3e50-4058-b301-f700c5304560" name="Changes" comment="FINISHED">
-      <change afterPath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unittests/renderer/baulingTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/ReflectionRefractionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" afterDir="false" />
     </list>
     <list id="9c825de4-3897-499f-8801-5ec91e5668cb" name="Changes by olete" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,92 +62,92 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in ISE5784_9287_2951.executor": "Run",
-    "JUnit.CameraTest.executor": "Run",
-    "JUnit.CameraTest.testConstructRay.executor": "Run",
-    "JUnit.CylinderTest.executor": "Run",
-    "JUnit.CylinderTest.testGetNormal.executor": "Run",
-    "JUnit.GeometriesTest.executor": "Run",
-    "JUnit.ImageWriterTest.executor": "Run",
-    "JUnit.IntegrationTests.executor": "Run",
-    "JUnit.IntegrationTests.sphereTest.executor": "Run",
-    "JUnit.LightsTests.executor": "Run",
-    "JUnit.LightsTests.sphereDirectional.executor": "Run",
-    "JUnit.LightsTests.spherePoint.executor": "Run",
-    "JUnit.LightsTests.sphereSpotSharp.executor": "Run",
-    "JUnit.LightsTests.trianglesDirectional.executor": "Run",
-    "JUnit.MINIP1.executor": "Run",
-    "JUnit.MINIP1.testBlurryGlass.executor": "Run",
-    "JUnit.MINIP1.testBlurryGlass2.executor": "Run",
-    "JUnit.MINIP1.twoSpheres.executor": "Run",
-    "JUnit.PlaneTest.executor": "Run",
-    "JUnit.PlaneTest.testFindIntersections.executor": "Run",
-    "JUnit.PointTest.executor": "Run",
-    "JUnit.PolygonTests (1).executor": "Run",
-    "JUnit.PolygonTests.executor": "Run",
-    "JUnit.PolygonTests.testConstructor (1).executor": "Run",
-    "JUnit.PolygonTests.testConstructor.executor": "Run",
-    "JUnit.PolygonTests.testFindIntersections.executor": "Run",
-    "JUnit.PolygonTests.testGetNormal.executor": "Run",
-    "JUnit.RayTest.executor": "Run",
-    "JUnit.RayTest.findClosestPoint.executor": "Run",
-    "JUnit.ReflectionRefractionTests.executor": "Run",
-    "JUnit.ReflectionRefractionTests.modifiedTrianglesWithSmallerSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.planeSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.polygonSphereWithCylinders.executor": "Run",
-    "JUnit.ReflectionRefractionTests.polygonSphereWithCylindersInBounds.executor": "Run",
-    "JUnit.ReflectionRefractionTests.restrictedTrianglesSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.restrictedTrianglesWithCustomColors.executor": "Run",
-    "JUnit.ReflectionRefractionTests.restrictedTrianglesWithCylinders.executor": "Run",
-    "JUnit.ReflectionRefractionTests.singleTriangleSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.testGenerateBowlingSceneImage.executor": "Run",
-    "JUnit.ReflectionRefractionTests.testGenerateComplexGlowingShapesImage.executor": "Run",
-    "JUnit.ReflectionRefractionTests.testGenerateElegantGeometricShapesImage.executor": "Run",
-    "JUnit.ReflectionRefractionTests.testGenerateElegantGlowingShapesImage.executor": "Run",
-    "JUnit.ReflectionRefractionTests.testTheBonusImageStage7.executor": "Run",
-    "JUnit.ReflectionRefractionTests.trianglesSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.trianglesSphereBowlingAlley.executor": "Run",
-    "JUnit.ReflectionRefractionTests.trianglesSphereWithPlaneEffect.executor": "Run",
-    "JUnit.ReflectionRefractionTests.trianglesSphereWithVisibleStripe.executor": "Run",
-    "JUnit.ReflectionRefractionTests.trianglesTransparentSphere.executor": "Run",
-    "JUnit.ReflectionRefractionTests.twoSpheresOnMirrors.executor": "Run",
-    "JUnit.RenderTests.aaaaaa.executor": "Run",
-    "JUnit.RenderTests.basicRenderMultiColorTest.executor": "Run",
-    "JUnit.RenderTests.executor": "Run",
-    "JUnit.RenderTests.renderMultiColorTest.executor": "Debug",
-    "JUnit.RenderTests.renderTwoColorTest.executor": "Run",
-    "JUnit.ShadowTests.executor": "Run",
-    "JUnit.ShadowTests.sphereTriangleMove1.executor": "Run",
-    "JUnit.ShadowTests.sphereTriangleMove2.executor": "Run",
-    "JUnit.ShadowTests.trianglesSphere.executor": "Run",
-    "JUnit.SphereTest.executor": "Debug",
-    "JUnit.SphereTest.testFindIntersections.executor": "Run",
-    "JUnit.TriangleTest.executor": "Run",
-    "JUnit.TriangleTest.testFindIntersections.executor": "Run",
-    "JUnit.TubeTest.executor": "Run",
-    "JUnit.VectorTest.executor": "Run",
-    "JUnit.baulingTests.executor": "Run",
-    "JUnit.baulingTests.restrictedTrianglesWithCylinders.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.updates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in ISE5784_9287_2951.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CameraTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CameraTest.testConstructRay.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CylinderTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CylinderTest.testGetNormal.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GeometriesTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ImageWriterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IntegrationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IntegrationTests.sphereTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LightsTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LightsTests.sphereDirectional.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LightsTests.spherePoint.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LightsTests.sphereSpotSharp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LightsTests.trianglesDirectional.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MINIP1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MINIP1.testBlurryGlass.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MINIP1.testBlurryGlass2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MINIP1.twoSpheres.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlaneTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlaneTest.testFindIntersections.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PointTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests.testConstructor (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests.testConstructor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests.testFindIntersections.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PolygonTests.testGetNormal.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RayTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RayTest.findClosestPoint.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.modifiedTrianglesWithSmallerSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.planeSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.polygonSphereWithCylinders.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.polygonSphereWithCylindersInBounds.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.restrictedTrianglesSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.restrictedTrianglesWithCustomColors.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.restrictedTrianglesWithCylinders.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.singleTriangleSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.testGenerateBowlingSceneImage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.testGenerateComplexGlowingShapesImage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.testGenerateElegantGeometricShapesImage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.testGenerateElegantGlowingShapesImage.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.testTheBonusImageStage7.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.trianglesSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.trianglesSphereBowlingAlley.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.trianglesSphereWithPlaneEffect.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.trianglesSphereWithVisibleStripe.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.trianglesTransparentSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReflectionRefractionTests.twoSpheresOnMirrors.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RenderTests.aaaaaa.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RenderTests.basicRenderMultiColorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RenderTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RenderTests.renderMultiColorTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RenderTests.renderTwoColorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShadowTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShadowTests.sphereTriangleMove1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShadowTests.sphereTriangleMove2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShadowTests.trianglesSphere.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SphereTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.SphereTest.testFindIntersections.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TriangleTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TriangleTest.testFindIntersections.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TubeTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.VectorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.baulingTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.baulingTests.restrictedTrianglesWithCylinders.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.updates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\ISE5784_9287_2951\unittests\renderer" />
@@ -174,7 +165,7 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MINIP1.testBlurryGlass">
     <configuration name="All in ISE5784_9287_2951" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_9287_2951" />
       <option name="PACKAGE_NAME" value="" />
@@ -249,9 +240,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MINIP1.testBlurryGlass2" />
         <item itemvalue="JUnit.MINIP1.testBlurryGlass" />
         <item itemvalue="JUnit.All in ISE5784_9287_2951" />
+        <item itemvalue="JUnit.MINIP1.testBlurryGlass2" />
         <item itemvalue="JUnit.MINIP1.twoSpheres" />
         <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheresOnMirrors" />
       </list>
@@ -338,7 +329,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1720648117413</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎-00010" summary="FINISHED">
+      <option name="closed" value="true" />
+      <created>1723126669061</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723126669061</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
