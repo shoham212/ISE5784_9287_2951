@@ -14,7 +14,7 @@ import static primitives.Util.isZero;
  *
  * author Shoham&Efrat
  */
-public class Triangle extends Polygon {
+public class Triangle extends Polygon  {
     /**
      * Constructs a triangle with the specified three points.
      *
@@ -24,10 +24,28 @@ public class Triangle extends Polygon {
      */
     public Triangle(Point p1, Point p2, Point p3) {
         super(p1, p2, p3);
+
+        this.minPoint = new Point(
+                Math.min(p1.getX(), Math.min(p2.getX(), p3.getX())),
+                Math.min(p1.getY(), Math.min(p2.getY(), p3.getY())),
+                Math.min(p1.getZ(), Math.min(p2.getZ(), p3.getZ()))
+        );
+        this.maxPoint = new Point(
+                Math.max(p1.getX(), Math.max(p2.getX(), p3.getX())),
+                Math.max(p1.getY(), Math.max(p2.getY(), p3.getY())),
+                Math.max(p1.getZ(), Math.max(p2.getZ(), p3.getZ()))
+        );
     }
 
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+        // Check if the ray intersects the bounding box before proceeding with further calculations
+        if (!isRayIntersectingBoundingBox(ray, maxDistance)&& isBvh) {
+            return null;
+        }
+        if (plane.findGeoIntersections(ray, maxDistance) == null)
+            return null;
+
         List<Point> intersections = plane.findIntersections(ray);
         // if there are no intersections with the plane, there are no intersections with the triangle
         if (intersections == null) {

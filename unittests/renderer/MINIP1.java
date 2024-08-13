@@ -59,7 +59,7 @@ public class MINIP1 {
                      new Polygon(new Point(5 * i - 4, -5, -11), new Point(5 * i - 4, -5, 5), new Point(5 * i + 4, -5, 5),
                             new Point(5 * i + 4, -5, -11)).setEmission(new Color(250, 235, 215).reduce(2))
                             .setMaterial(new Material().setKd(0.001).setKs(0.002).setShininess(1).setKt(0.95)
-                                    .setBlurGlass(i == 4 ? 1 : 100, 0.3 * (i + 5), 3))
+                                     .setBlurGlass(i == 4 ? 1 : 1000, 0.9 * (i + 15), 10)) //
 
             );
         }
@@ -77,12 +77,12 @@ public class MINIP1 {
                 new Vector(-20.43, 7.37, -13.77)).setKl(0.6));
 
         ImageWriter imageWriter = new ImageWriter("blurryGlass", 500, 500);
-        camera.setImageWriter(imageWriter) //
-                .setRayTracer(new SimpleRayTracer(scene)) //
-                .build() //
+        camera.setImageWriter(imageWriter)
+                .setRayTracer(new SimpleRayTracer(scene))
+                .setMultithreading(3)
+                .setDebugPrint(1)
+                .build()
                 .renderImage()
                 .writeToImage();
-
     }
-
 }

@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbea4eb-3e50-4058-b301-f700c5304560" name="Changes" comment="FINISHED">
+      <change afterPath="$PROJECT_DIR$/src/renderer/PixelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/renderer/NicePic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/SimpleRayTracer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/renderer/MINIP1.java" afterDir="false" />
     </list>
     <list id="9c825de4-3897-499f-8801-5ec91e5668cb" name="Changes by olete" comment="" />
@@ -83,6 +96,7 @@
     &quot;JUnit.MINIP1.testBlurryGlass.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.MINIP1.testBlurryGlass2.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.MINIP1.twoSpheres.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NicePic.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PlaneTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PlaneTest.testFindIntersections.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PointTest.executor&quot;: &quot;Run&quot;,
@@ -151,8 +165,8 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\ISE5784_9287_2951\unittests\renderer" />
-      <recent name="C:\Users\User\ISE5784_9287_2951\unittests\lighting" />
       <recent name="C:\Users\User\ISE5784_9287_2951\src\renderer" />
+      <recent name="C:\Users\User\ISE5784_9287_2951\unittests\lighting" />
       <recent name="C:\Users\User\ISE5784_9287_2951\src\scene" />
       <recent name="C:\Users\User\ISE5784_9287_2951\src\lighting" />
     </key>
@@ -165,11 +179,26 @@
       <recent name="geometries" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MINIP1.testBlurryGlass">
+  <component name="RunManager" selected="JUnit.All in ISE5784_9287_2951">
     <configuration name="All in ISE5784_9287_2951" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5784_9287_2951" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MINIP1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5784_9287_2951" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="renderer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="renderer" />
+      <option name="MAIN_CLASS_NAME" value="renderer.MINIP1" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -222,29 +251,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReflectionRefractionTests.twoSpheresOnMirrors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5784_9287_2951" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="renderer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="renderer" />
-      <option name="MAIN_CLASS_NAME" value="renderer.ReflectionRefractionTests" />
-      <option name="METHOD_NAME" value="twoSpheresOnMirrors" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MINIP1.testBlurryGlass" />
         <item itemvalue="JUnit.All in ISE5784_9287_2951" />
+        <item itemvalue="JUnit.MINIP1" />
+        <item itemvalue="JUnit.MINIP1.testBlurryGlass" />
         <item itemvalue="JUnit.MINIP1.testBlurryGlass2" />
         <item itemvalue="JUnit.MINIP1.twoSpheres" />
-        <item itemvalue="JUnit.ReflectionRefractionTests.twoSpheresOnMirrors" />
       </list>
     </recent_temporary>
   </component>
@@ -337,7 +350,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1723126669061</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL‎-00011" summary="FINISHED">
+      <option name="closed" value="true" />
+      <created>1723141369284</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL‎-00011" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723141369284</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

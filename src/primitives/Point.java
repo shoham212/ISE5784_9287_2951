@@ -111,4 +111,24 @@ public class Point {
     public double distance(Point p) {
         return Math.sqrt(distanceSquared(p));
     }
+
+    /**
+     * Returns the ith component of the point.
+     *
+     * @param i the index of the component to return (0, 1, or 2)
+     * @return the ith component of the point
+     * @throws IllegalArgumentException if i is not 0, 1, or 2
+     */
+    public double get(int i) {
+        switch (i) {
+            case 0:
+                return xyz.d1;
+            case 1:
+                return xyz.d2;
+            case 2:
+                return xyz.d3;
+            default:
+                throw new IllegalArgumentException("Invalid value for cord");
+        }
+    }
 }

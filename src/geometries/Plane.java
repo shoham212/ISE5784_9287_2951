@@ -94,6 +94,11 @@ public class Plane extends Geometry {
         return null;
     }
 
+    @Override
+    public boolean isRayIntersectingBoundingBox(Ray ray,double maxDistance) {
+        if(!isZero(this.normal.dotProduct(ray.getDirection()))) return true;
+        return false;
+    }
 }
 
 

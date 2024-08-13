@@ -13,12 +13,24 @@ import java.util.List;
  */
 public abstract class Intersectable {
 
-    /**
-     * Finds the intersection points of a ray with the geometry.
-     *
-     * @param ray the ray that intersects the geometry.
-     * @return a list of intersection points of the ray with the geometry.
-     */
+    protected Point minPoint, maxPoint;
+
+    protected boolean isBvh = false;
+
+    public Point getMinPoint()
+    {
+        return minPoint;
+    }
+
+    public Point getMaxPoint() {
+        return maxPoint;
+    }
+        /**
+         * Finds the intersection points of a ray with the geometry.
+         *
+         * @param ray the ray that intersects the geometry.
+         * @return a list of intersection points of the ray with the geometry.
+         */
     public List<Point> findIntersections(Ray ray) {
         var geoList = findGeoIntersections(ray);
         return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
@@ -94,7 +106,26 @@ public abstract class Intersectable {
      */
     protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
 
+    protected boolean isRayIntersectingBoundingBox(Ray ray, double maxDistance) {
+        // Check for axis-wise intersection with the AABB
+        for (int i = 0; i < 3; i++) {
+            double tmin = (minPoint.get(i) - ray.getHead().get(i)) / ray.getDirection().get(i);  // Nearest plane intersection on x-axis
+            double tmax = (maxPoint.get(i) - ray.getHead().get(i)) / ray.getDirection().get(i);  // Farthest plane intersection on x-axis
 
+            // Swap tmin and tmax if necessary (ensure tmin < tmax)
+            if (tmin > tmax) {
+                double temp = tmin;
+                tmin = tmax;
+                tmax = temp;
+            }
+
+            // Check if the intersection falls outside the ray's parameter range
+            if (tmin > maxDistance || tmax < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 

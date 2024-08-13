@@ -28,6 +28,15 @@ public class Sphere extends RadialGeometry {
     public Sphere(double radius, Point center) {
         super(radius);
         this.center = center;
+        this.maxPoint = this.center
+                .add(Vector.X.scale(radius))
+                .add(Vector.Y.scale(radius))
+                .add(Vector.Z.scale(radius));
+
+        this.minPoint = this.center
+                .add(Vector.X.scale(-radius))
+                .add(Vector.Y.scale(-radius))
+                .add(Vector.Z.scale(-radius));
     }
 
     @Override
@@ -38,6 +47,11 @@ public class Sphere extends RadialGeometry {
 
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+        // Check if the ray intersects the bounding box before proceeding with further calculations
+        if (!isRayIntersectingBoundingBox(ray, maxDistance)&& isBvh) {
+            return null;
+        }
+
         if (ray.getHead().equals(center)) {
             double distanceToRadiusPoint = alignZero(ray.getPoint(radius).distance(ray.getHead()));
             if (distanceToRadiusPoint <= maxDistance) {

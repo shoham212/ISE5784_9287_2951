@@ -86,12 +86,12 @@ public class SimpleRayTracer extends RayTracerBase {
         Ray reflectedRay = constructReflectedRay(gp.point, v, n, vn);
         Ray refractedRay = constructRefractedRay(gp.point, v, n);
         if (!kkr.lowerThan(MIN_CALC_COLOR_K)) {
-            color = color.add(calcGlobalEffect(material,reflectedRay, level - 1, kr, kkr));
+            color = color.add(calcGlobalEffect(material,reflectedRay, level - 1, kr, kkr));//מראה
         }
         Double3 kt = material.kT;
         Double3 kkt = k.product(kt);
         if (!kkt.lowerThan(MIN_CALC_COLOR_K)) {
-            color = color.add(calcGlobalEffect(material,refractedRay, level - 1, kt, kkt));
+            color = color.add(calcGlobalEffect(material,refractedRay, level - 1, kt, kkt));//חלון
         }
         return color;
     }
@@ -273,5 +273,4 @@ public class SimpleRayTracer extends RayTracerBase {
 
         return color.reduce(rays.size());
     }
-
 }

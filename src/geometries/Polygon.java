@@ -3,12 +3,8 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 /**
@@ -50,6 +46,11 @@ public class Polygon extends Geometry {
       // Generate the plane according to the first three vertices and associate the polygon with this plane.
       // The plane holds the invariant normal (orthogonal unit) vector to the polygon
       plane = new Plane(vertices[0], vertices[1], vertices[2]);
+
+      // Calculate the bounding box
+      minPoint = findMinPoint(vertices);
+      maxPoint = findMaxPoint(vertices);
+
       if (size == 3) return; // no need for more tests for a Triangle
 
       Vector n = plane.getNormal();
@@ -74,6 +75,26 @@ public class Polygon extends Geometry {
       }
    }
 
+   private Point findMinPoint(Point[] vertices) {
+      double minX = Double.MAX_VALUE, minY = Double.MAX_VALUE, minZ = Double.MAX_VALUE;
+      for (Point point : vertices) {
+         minX = Math.min(minX, point.getX());
+         minY = Math.min(minY, point.getY());
+         minZ = Math.min(minZ, point.getZ());
+      }
+      return new Point(minX, minY, minZ);
+   }
+
+   private Point findMaxPoint(Point[] vertices) {
+      double maxX = Double.MIN_VALUE, maxY = Double.MIN_VALUE, maxZ = Double.MIN_VALUE;
+      for (Point point : vertices) {
+         maxX = Math.max(maxX, point.getX());
+         maxY = Math.max(maxY, point.getY());
+         maxZ = Math.max(maxZ, point.getZ());
+      }
+      return new Point(maxX, maxY, maxZ);
+   }
+
    @Override
    public Vector getNormal(Point point) {
       return plane.getNormal();
@@ -82,6 +103,11 @@ public class Polygon extends Geometry {
 
    @Override
    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double distance){
+      // Check if the ray intersects the bounding box before proceeding with further calculations
+      if (!isRayIntersectingBoundingBox(ray, distance)&& isBvh) {
+         return null;
+      }
+
       List<GeoPoint> intersections=plane.findGeoIntersections(ray, distance);
       //if there are no intersections with the plane, there are no intersections with the polygon
       if(intersections==null){
